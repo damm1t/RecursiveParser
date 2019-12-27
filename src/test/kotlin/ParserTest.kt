@@ -89,19 +89,17 @@ class ParserTest {
 
     @Test
     fun testIncorrectInput() {
-        test("a || b & c", true)
-        test("!!x & a | (b & c", true)
-        test("b)))", true)
+        test("b)", true)
         test("!!x & a | b)))", true)
-        test("!!x & () | b", true)
-        test("x !& a", true)
-        test("x ! a", true)
+        test("a !& b", true)
+        test("a ! b", true)
         test("x () c", true)
         test("x &", true)
         test("x |", true)
         test("x ^", true)
         test("& x", true)
-        test("|a", true)
+        test("| x", true)
+        test("^ x", true)
     }
 
     @Test
