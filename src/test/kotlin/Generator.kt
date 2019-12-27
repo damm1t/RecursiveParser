@@ -1,6 +1,6 @@
 import java.util.*
 
-class TestGenerator internal constructor(seed: Int) {
+class Generator internal constructor(seed: Int) {
     private val random: Random = Random(seed.toLong())
     private val probability: Int
         get() = random.nextInt(100)

@@ -123,7 +123,7 @@ class ParserTest {
     @Test
     fun randomTests() {
         for (i in 0..999) {
-            test(TestGenerator(239 * i).expression, false)
+            test(Generator(239 * i).expression, false)
         }
     }
 }
