@@ -32,7 +32,7 @@ class ParserTest {
         val tree: Node
         try {
             tree = parser.parse("!!a")
-            visualizeTree(tree, "gviz")
+            visualizeTree(tree, "test")
         } catch (e: ParseException) {
             e.printStackTrace()
         } catch (e: InterruptedException) {

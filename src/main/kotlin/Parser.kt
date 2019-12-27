@@ -7,7 +7,7 @@ class Parser {
     private var tokenizer: Tokenizer? = null
     @Throws(ParseException::class)
     fun parse(expression: String): Node {
-        return parse(ByteArrayInputStream(expression.toByteArray()))
+        return parse(ByteArrayInputStream(expression.toByteArray(Charset.forName("UTF-8"))))
     }
 
     @Throws(ParseException::class)
