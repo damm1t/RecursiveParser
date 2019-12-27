@@ -1,4 +1,4 @@
-import GraphvizUtils.visualizeTree
+import Graphviz.visualizeTree
 import org.junit.Assert
 import org.junit.Test
 import java.io.IOException

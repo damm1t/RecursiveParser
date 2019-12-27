@@ -1,6 +1,6 @@
 import java.io.*
 
-object GraphvizUtils {
+object Graphviz {
     @Throws(IOException::class, InterruptedException::class)
     fun visualizeTree(tree: Node, name: String) {
         BufferedWriter(OutputStreamWriter(FileOutputStream("$name.dot"))).use { writer ->
