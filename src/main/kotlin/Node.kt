@@ -1,5 +1,3 @@
-import java.util.*
-
 class Node(val type: String) {
     val children: MutableList<Node> = mutableListOf()
 

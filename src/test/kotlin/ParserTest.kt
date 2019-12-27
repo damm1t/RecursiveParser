@@ -31,7 +31,7 @@ class ParserTest {
         val parser = Parser()
         val tree: Node
         try {
-            tree = parser.parse("(!a | b) & a & (a | !(b ^ c))")
+            tree = parser.parse("!!a")
             visualizeTree(tree, "gviz")
         } catch (e: ParseException) {
             e.printStackTrace()
@@ -52,7 +52,7 @@ class ParserTest {
     @Test
     fun testNegation() {
         test("!a", false)
-        test("!!!!a", false)
+        test("!!a", false)
         test("!!(!a)", false)
     }
 

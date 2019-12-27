@@ -10,11 +10,7 @@ class Tokenizer(private val inputStream: InputStream) {
     var token: Token = Token.MISTAKE
     private val toToken = HashMap<Char, Token>()
 
-    constructor(inputString: String) : this(
-        ByteArrayInputStream(
-            inputString.toByteArray(Charset.forName("UTF-8"))
-        )
-    ) {
+    constructor(inputString: String) : this(ByteArrayInputStream(inputString.toByteArray())) {
     }
 
     init {
