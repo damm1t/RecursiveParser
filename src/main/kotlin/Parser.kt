@@ -75,8 +75,37 @@ class Parser {
             Token.NOT -> {
                 res.children.add(Node("!"))
                 tokenizer!!.nextToken()
-                res.children.add(F())
+                res.children.add(FN())
             }
+            Token.OPEN_BRACE -> {
+                res.children.add(Node("("))
+                tokenizer!!.nextToken()
+                res.children.add(E())
+                if (tokenizer!!.token !== Token.CLOSE_BRACE) {
+                    throw ParseException(
+                        "unexpected char : " + tokenizer!!.getChar() + ", expected : )",
+                        tokenizer!!.position
+                    )
+                }
+                res.children.add(Node(")"))
+                tokenizer!!.nextToken()
+            }
+            Token.VARIABLE -> {
+                res.children.add(Node(Character.toString(tokenizer!!.getChar())))
+                tokenizer!!.nextToken()
+            }
+            else -> throw ParseException(
+                "unexpected char : " + tokenizer!!.getChar(),
+                tokenizer!!.position
+            )
+        }
+        return res
+    }
+
+    @Throws(ParseException::class)
+    private fun FN(): Node {
+        val res = Node("FN")
+        when (tokenizer!!.token) {
             Token.OPEN_BRACE -> {
                 res.children.add(Node("("))
                 tokenizer!!.nextToken()

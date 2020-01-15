@@ -8,6 +8,7 @@ class Tokenizer(private val inputStream: InputStream) {
     var position = 0
     private var curChar = 0
     var token: Token = Token.MISTAKE
+    var prevToken = Token.MISTAKE
     private val toToken = HashMap<Char, Token>()
 
     constructor(inputString: String) : this(ByteArrayInputStream(inputString.toByteArray(Charset.forName("UTF-8")))) {
@@ -39,6 +40,7 @@ class Tokenizer(private val inputStream: InputStream) {
     @Throws(ParseException::class)
     fun nextToken() {
         nextChar()
+        prevToken = token
         token = when {
             toToken.containsKey(curChar.toChar()) -> {
                 toToken[curChar.toChar()]!!

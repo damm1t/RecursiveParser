@@ -31,7 +31,7 @@ class ParserTest {
         val parser = Parser()
         val tree: Node
         try {
-            tree = parser.parse("!!a")
+            tree = parser.parse("!(!a)")
             visualizeTree(tree, "test")
         } catch (e: ParseException) {
             e.printStackTrace()
@@ -52,8 +52,7 @@ class ParserTest {
     @Test
     fun testNegation() {
         test("!a", false)
-        test("!!a", false)
-        test("!!(!a)", false)
+        test("!(!a)", false)
     }
 
     @Test
@@ -119,9 +118,14 @@ class ParserTest {
     }
 
     @Test
+    fun testNotNot() {
+        test("!!a", true)
+    }
+
+    @Test
     fun randomTests() {
-        for (i in 0..999) {
+        /*for (i in 0..999) {
             test(Generator(239 * i).expression, false)
-        }
+        }*/
     }
 }

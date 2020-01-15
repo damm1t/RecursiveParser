@@ -12,7 +12,9 @@
     T -> S
     S -> S&F
     S -> F
-    F -> !F
+    S -> FN
+    S -> S&FN
+    FN -> !F
     F -> (E)
     F -> [a-z]
 
@@ -29,7 +31,11 @@
     S -> F
     S' -> &FS'
     S' -> &F
-    F -> !F
+    S -> FNS'
+    S -> FN
+    S' -> &FNS'
+    S' -> &FN
+    FN -> !F
     F -> (E)
     F -> [a-z]
 
@@ -42,8 +48,10 @@
     T' -> ε
     S -> FS'
     S' -> &FS'
+    S -> FNS'
+    S' -> &FNS'
     S' -> ε
-    F -> !F
+    FN -> !F
     F -> (E)
     F -> [a-z]
 
